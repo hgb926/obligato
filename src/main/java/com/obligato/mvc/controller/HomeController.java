@@ -1,11 +1,10 @@
-package com.obligato.mvc.chap01;
-
+package com.obligato.mvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class BasicController {
+public class HomeController {
 
     @GetMapping("index")
     public String index() {
@@ -18,3 +17,4 @@ public class BasicController {
         return "hello";
     }
 }
+

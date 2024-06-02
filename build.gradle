@@ -1,7 +1,7 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.7.5'
-    id 'io.spring.dependency-management' version '1.1.4'
+    id 'org.springframework.boot' version '2.7.10'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 group = 'com.spring'
@@ -19,14 +19,13 @@ repositories {
 }
 
 dependencies {
+
+    // 스프링 종합 선물 세트
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // 롬복
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'javax.servlet:jstl'
-    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-
-
 
     // JUNIT (@Test)
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -47,6 +46,9 @@ dependencies {
 
     // 입력값 검증 라이브러리
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+//    //스프링 시큐리티 모듈
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
 }
 
 tasks.named('test') {

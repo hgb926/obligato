@@ -6,24 +6,25 @@
     <meta charset="UTF-8">
     <title>Web Study</title>
     <link rel="stylesheet" href="/assets/css/main.css">
+
 </head>
 <body>
 <div class="container">
     <header>
-        <h1>coupang eats</h1>
+        <h1>Obligato</h1>
         <nav>
             <ul>
-                <li><a href="#">배달파트너 신청</a></li>
-                <li><a href="#">사장님 입점 문의</a></li>
-                <li><a href="#">브랜드 스토리</a></li>
+                <li><a href="users/sign-up">로그인</a></li>
+                <li><a href="users/register">회원가입</a></li>
+                <li><a href="community/list">커뮤니티</a></li>
             </ul>
             <button>앱 다운로드</button>
         </nav>
     </header>
     <main>
         <div class="hero">
-            <h2>쿠팡 와우회원은 매 주문 무료배달</h2>
-            <p>이제 배달비 걱정 없이 주문하세요!</p>
+            <h2>오브리 구인 구직 사이트</h2>
+            <p>조건에 맞는 오브리를 검색해보세요!</p>
             <button>앱 다운로드</button>
         </div>
     </main>

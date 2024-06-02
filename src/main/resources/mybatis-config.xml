@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration
-        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
     <!--  카멜케이스와 스네이크케이스 자동 변환 설정  -->
@@ -9,11 +7,15 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
 
-    <!--  SELECT 조회 결과를 담을 Entity 클래스 별칭 설정하기  -->
+    <typeAliases>
+        <typeAlias type="com.obligato.mvc.entity.User" alias="user" />
+    </typeAliases>
 
 
 
-    <!--  SQL을 적어놓은 ...Mapper.xml 파일들을 사용등록하는 영역  -->
+    <mappers>
+        <mapper resource="mappers/UserMapper.xml" />
+    </mappers>
 
 
 </configuration>

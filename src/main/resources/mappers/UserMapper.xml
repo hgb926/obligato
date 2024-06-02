@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    user_id    INT AUTO_INCREMENT PRIMARY KEY,
+    username   VARCHAR(50)  NOT NULL UNIQUE, !!
+    password   VARCHAR(255) NOT NULL, !!
+    email      VARCHAR(100) NOT NULL UNIQUE, !!
+    name       VARCHAR(100), !!
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+  -->
+
+<mapper namespace="com.obligato.mvc.mapper.UserMapper">
+
+
+    <insert id="save">
+        INSERT INTO user
+        (username, password, email, name)
+        VALUES
+        (#{username}, #{password}, #{email}, #{name})
+    </insert>
+
+    <select id="findOne" resultType="user">
+        SELECT
+        *
+        FROM user
+        WHERE user_id = #{userId}
+    </select>
+
+    <!-- 조회 시 중복이면 count= 1, 중복이 아니면 count=0   -->
+    <select id="existsById" resultType="boolean">
+        SELECT COUNT(*)
+        FROM user
+        <if test="type == 'name'">
+            WHERE name = #{keyword}
+        </if>
+        <if test="type == 'email'">
+            WHERE email = #{keyword}
+        </if>
+    </select>
+
+
+</mapper>
