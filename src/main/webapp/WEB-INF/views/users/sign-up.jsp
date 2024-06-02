@@ -127,7 +127,7 @@
   <main>
     <div class="login-form">
       <h2>로그인</h2>
-      <form action="${pageContext.request.contextPath}/login" method="post">
+      <form action="/users/sign-up" method="get">
         <label for="username">아이디</label>
         <input type="text" id="username" name="username" required>
 

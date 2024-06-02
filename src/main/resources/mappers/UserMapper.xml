@@ -27,7 +27,7 @@
         SELECT
         *
         FROM user
-        WHERE user_id = #{userId}
+        WHERE username = #{username}
     </select>
 
     <!-- 조회 시 중복이면 count= 1, 중복이 아니면 count=0   -->

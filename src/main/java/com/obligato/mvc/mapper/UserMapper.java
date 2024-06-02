@@ -11,7 +11,7 @@ public interface UserMapper {
     boolean save(User user);
 
     // 회원 정보 개별 조회
-    User findOne(int userId);
+    User findOne(String username);
 
     // 중복 확인 (아이디, 이메일)
     /**

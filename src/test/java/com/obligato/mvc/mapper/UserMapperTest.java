@@ -18,7 +18,7 @@ class UserMapperTest {
     @DisplayName("조회 성공")
     void findOne() {
         //given
-        User one = userMapper.findOne(1);
+        User one = userMapper.findOne("hgb926");
         //when
         System.out.println("one = " + one);
 
