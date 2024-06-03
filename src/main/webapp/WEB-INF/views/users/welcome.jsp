@@ -21,7 +21,7 @@
         <h1>Obligato</h1>
         <nav>
             <ul>
-                <li><a href="users/sign-up">로그인</a></li>
+                <li><a href="sign-up">로그인</a></li>
                 <li><a href="community/list">커뮤니티</a></li>
             </ul>
             <button>앱 다운로드</button>
@@ -29,9 +29,11 @@
     </header>
     <main>
         <div class="hero">
-            <h2>님. 환영합니다!</h2>
+            <c:if test="${userInfo != null}">
+            <h2>${userInfo.nickName}님. 환영합니다!</h2>
             <p>여러 서비스가 준비되어 있습니다.</p>
             <button><a href="../index">홈으로 가기</a></button>
+            </c:if>
         </div>
     </main>
 </div>

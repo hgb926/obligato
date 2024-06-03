@@ -127,7 +127,7 @@
   <main>
     <div class="login-form">
       <h2>로그인</h2>
-      <form action="/users/sign-up" method="get">
+      <form action="/users/sign-up" method="post">
         <label for="username">아이디</label>
         <input type="text" id="username" name="username" required>
 

@@ -12,6 +12,11 @@
 <div class="container">
     <header>
         <h1>Obligato</h1>
+        <p>
+            <c:if test="${userInfo != null}">
+                <div>${userInfo.nickName}님, 환영합니다!</div>
+            </c:if>
+        </p>
         <nav>
             <ul>
                 <li><a href="users/sign-up">로그인</a></li>
