@@ -12,16 +12,21 @@
 <div class="container">
     <header>
         <h1>Obligato</h1>
-        <p>
-            <c:if test="${userInfo != null}">
-                <div>${userInfo.nickName}님, 환영합니다!</div>
-            </c:if>
-        </p>
+        <c:if test="${userInfo != null}">
+            <div>${userInfo.nickName}님, 환영합니다!</div>
+        </c:if>
         <nav>
             <ul>
+                <c:if test="${userInfo != null}">
+                <li><a href="users/sign-up">마이페이지</a></li>
+                <li><a href="community/list">커뮤니티</a></li>
+                <li><a href="#">로그아웃</a></li>
+                </c:if>
+                <c:if test="${userInfo == null}">
                 <li><a href="users/sign-up">로그인</a></li>
                 <li><a href="users/register">회원가입</a></li>
-                <li><a href="community/list">커뮤니티</a></li>
+                <li><a href="#">커뮤니티</a></li>
+                </c:if>
             </ul>
             <button>앱 다운로드</button>
         </nav>
