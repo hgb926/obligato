@@ -21,9 +21,12 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class Post {
-    private int postId;
-    private int userId;
-    private String title;
-    private String content;
+    private int postId; // pk 1, 2, 3
+    private String userName; //
+    private String title; // 제목
+    private String content; // 내용
     private LocalDateTime createdAt;
+    private int viewCount;
+    private int replyCount;
+
 }

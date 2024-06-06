@@ -99,6 +99,10 @@
         font-size: 14px;
         color: #666;
     }
+    .write {
+        text-underline-mode: none;
+        color: white;
+    }
 
     .post span {
         font-size: 12px;
@@ -118,17 +122,20 @@
     </header>
     <main>
         <h2>커뮤니티</h2>
-        <button class="write-button">작성하기</button> <br>
+        <button class="write-button write"><a href="/community/write" class="write">작성하기</a></button> <br>
         <button class="write-button">악기 별</button>
         <button class="write-button">지역 별</button>
         <button class="write-button">페이 별</button>
         <button class="write-button">최신 순</button>
         <div class="posts">
+            <c:forEach var="list" items="${postList}">
             <div class="post">
-                <h3>중요 알림 OKKY v4.4.0 모바일앱 릴리즈</h3>
-                <p>약 2개월 전 · 523</p>
-                <span>조회수: 2.8k · 댓글: 11 · 좋아요: 17</span>
+                <h3>${list.title}</h3>
+                <p>${list.userName}</p>
+                <p>${list.createdAt}</p>
+                <span>조회수: ${list.viewCount} · 댓글: ${list.replyCount}</span>
             </div>
+            </c:forEach>
         </div>
     </main>
 </div>

@@ -20,7 +20,7 @@
         INSERT INTO user
         (username, password, email, name)
         VALUES
-        (#{username}, #{password}, #{email}, #{name})
+        (#{userName}, #{password}, #{email}, #{name})
     </insert>
 
     <select id="findOne" resultType="user">

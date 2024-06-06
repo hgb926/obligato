@@ -12,37 +12,29 @@ class UserMapperTest {
     
     @Autowired
     private UserMapper userMapper;
+
+
     
-    
-    @Test
-    @DisplayName("조회 성공")
-    void findOne() {
-        //given
-        User one = userMapper.findOne("hgb926");
-        //when
-        System.out.println("one = " + one);
-
-        
-        //then
-    }
-
-
     @Test
     @DisplayName("저장 성공")
     void save() {
         //given
         User user = User.builder()
-                .username("foreign")
-                .name("ddd")
-                .password("asdfasdfd!")
-                .email("hgb9266@naver.com")
+                .userName("hgb926")
+                .password("gksrlqja1!")
+                .email("hgb926@naver.com")
+                .name("한기범")
                 .build();
         //when
         boolean flag = userMapper.save(user);
 
         //then
-        System.out.println("flag = " + flag);
+        assertTrue(flag);
+        System.out.println("user = " + user);
     }
+    
+
+
 
 
   

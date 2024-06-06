@@ -25,11 +25,11 @@ CREATE TABLE user
 @Builder
 public class User {
 
-    private int userId;
-    private String username; // 유저 실명
+    private int userId; // 1, 2, 3 ...
+    private String userName; // 계정명 (hgb926) 후보키
     @Setter
     private String password;
     private String email;
-    private String name; // 계정명
+    private String name; // 유저닉네임(한기범)
     private LocalDateTime createdAt;
 }
