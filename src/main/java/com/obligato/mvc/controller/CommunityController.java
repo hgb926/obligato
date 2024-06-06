@@ -35,9 +35,11 @@ public class CommunityController {
         return "community/write";
     }
 
-//    @PostMapping("/write")
-//    public String writePost(SavePostDto dto) {
-//
-//    }
+    @PostMapping("/write")
+    public String writePost(SavePostDto dto) {
+        communityService.save(dto);
+        log.info("dto: {}", dto.toString());
+        return "redirect:/community/list";
+    }
 
 }

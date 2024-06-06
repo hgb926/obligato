@@ -2,16 +2,16 @@ package com.obligato.mvc.dto.request;
 
 
 import lombok.*;
-import org.checkerframework.checker.units.qual.N;
 
 @Getter @ToString
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Setter
 public class SavePostDto {
 
     private String title;
-    private String writer;
+    private String userName;
     private String content;
 }

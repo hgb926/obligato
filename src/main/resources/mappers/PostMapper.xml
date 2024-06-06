@@ -10,6 +10,7 @@
         SELECT
             *
         FROM post
+        ORDER BY post_id DESC
     </select>
 
     <insert id="save">

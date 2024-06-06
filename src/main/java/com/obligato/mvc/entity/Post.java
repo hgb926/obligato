@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 @Builder
 public class Post {
     private int postId; // pk 1, 2, 3
-    private String userName; //
+    private String userName; // 계정명 (hgb926)
     private String title; // 제목
     private String content; // 내용
     private LocalDateTime createdAt;

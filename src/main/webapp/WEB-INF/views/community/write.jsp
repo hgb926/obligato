@@ -108,22 +108,23 @@
     <h1>함께 할 때 더 즐거운 순간</h1>
 <%--    <p>남녀노소할것없이 지식공유를 통하여 OKKY에서 다양한 사람들과 협업을 하거나 정보를 서로 나눠보세요.</p>--%>
 
-    <form>
 <%--        <div class="form-group">--%>
-<%--            <label for="topic">토픽</label>--%>
-<%--            <select id="topic">--%>
-<%--                <option value="">토픽을 선택해주세요.</option>--%>
-<%--            </select>--%>
-<%--        </div>--%>
+        <%--            <label for="topic">토픽</label>--%>
+        <%--            <select id="topic">--%>
+        <%--                <option value="">토픽을 선택해주세요.</option>--%>
+        <%--            </select>--%>
+        <%--        </div>--%>
+    <form action="/community/write" method="post">
 
-        <div class="form-group">
+
+    <div class="form-group">
             <label for="title">제목</label>
             <input type="text" id="title" name="title" placeholder="제목을 입력해주세요.">
         </div>
 
         <div class="form-group">
             <label for="writer">작성자 이름</label>
-            <input type="text" id="writer" name="writer" placeholder="작성자 이름을 입력해주세요.">
+            <input type="text" id="writer" name="userName" placeholder="작성자 이름을 입력해주세요.">
         </div>
 
         <div class="form-group">

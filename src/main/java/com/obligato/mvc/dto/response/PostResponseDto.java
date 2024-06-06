@@ -18,7 +18,6 @@ public class PostResponseDto {
     private int replyCount;
     private String createdAt;
 
-    // 이제 게시글 쓰기~
 
     public PostResponseDto(Post post) {
         this.title = post.getTitle();

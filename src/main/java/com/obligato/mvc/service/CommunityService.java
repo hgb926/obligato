@@ -1,5 +1,6 @@
 package com.obligato.mvc.service;
 
+import com.obligato.mvc.dto.request.SavePostDto;
 import com.obligato.mvc.dto.response.PostResponseDto;
 import com.obligato.mvc.entity.Post;
 import com.obligato.mvc.mapper.PostMapper;
@@ -23,6 +24,16 @@ public class CommunityService {
                 .map(p -> new PostResponseDto(p))
                 .collect(Collectors.toList());
         return dtoList;
+    }
+
+    public void save(SavePostDto dto) {
+        Post post = Post.builder()
+                .userName(dto.getUserName())
+                .title(dto.getTitle())
+                .content(dto.getContent())
+                .build();
+        log.info("Save post: {}", post);
+        postMapper.save(post);
     }
 
 
