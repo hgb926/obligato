@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor
 @Builder
 public class PostResponseDto {
+    private int postId;
     private String title;
     private String userName;
     private int viewCount;
@@ -20,6 +21,7 @@ public class PostResponseDto {
 
 
     public PostResponseDto(Post post) {
+        this.postId = post.getPostId();
         this.title = post.getTitle();
         this.userName = post.getUserName();
         this.viewCount = post.getViewCount();

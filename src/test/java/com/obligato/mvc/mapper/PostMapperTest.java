@@ -46,5 +46,17 @@ class PostMapperTest {
     }
 
 
+    @Test
+    @DisplayName("개별 조회")
+    void findOne() {
+        //given
+        int no = 1;
+        //when
+        Post found = postMapper.findOne(no);
+        //then
+        System.out.println("found = " + found);
+        assertNotNull(found);
+    }
+
 
 }

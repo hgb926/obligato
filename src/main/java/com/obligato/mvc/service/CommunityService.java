@@ -36,5 +36,9 @@ public class CommunityService {
         postMapper.save(post);
     }
 
+    public Post findOne(int bno) {
+        return postMapper.findOne(bno);
+    }
+
 
 }

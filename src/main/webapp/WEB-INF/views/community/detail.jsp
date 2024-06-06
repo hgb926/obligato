@@ -81,35 +81,54 @@
         flex-direction: column;
     }
 
-    #post {
+    .post {
         background-color: #f9f9f9;
         padding: 20px;
         margin-bottom: 20px;
         border-radius: 5px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
     }
 
-    #post h3 {
+    .post h3 {
         margin: 0 0 10px;
         font-size: 18px;
     }
 
-    #post p {
+    .post p {
         margin: 0 0 10px;
         font-size: 14px;
         color: #666;
     }
+
     .write {
         text-underline-mode: none;
         color: white;
     }
 
-    #post span {
+    .post span {
         font-size: 12px;
         color: #999;
     }
 
+    .post-detail {
+        margin-bottom: 20px;
+    }
+
+    .post-detail h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .post-detail .metadata {
+        font-size: 14px;
+        color: #999;
+        margin-bottom: 20px;
+    }
+
+    .post-detail .content {
+        font-size: 16px;
+        color: #333;
+    }
 </style>
 <body>
 <div class="container">
@@ -124,33 +143,18 @@
     </header>
     <main>
         <h2>커뮤니티</h2>
-        <button class="write-button write"><a href="/community/write" class="write">작성하기</a></button> <br>
-        <button class="write-button">악기 별</button>
-        <button class="write-button">지역 별</button>
-        <button class="write-button">페이 별</button>
-        <button class="write-button">최신 순</button>
-        <div class="posts">
-            <c:forEach var="list" items="${postList}">
-
-                    <div id="post" data-bno="${list.postId}">
-                        <h3>${list.title}</h3>
-                        <p>${list.userName}</p>
-                        <p>${list.createdAt}</p>
-                        <span>조회수: ${list.viewCount} · 댓글: ${list.replyCount}</span>
-                    </div>
-
-            </c:forEach>
+        <div class="post-detail">
+            <h1>${post.title}</h1>
+            <div class="metadata">
+                작성자: ${post.userName}<br>
+                작성일: ${post.createdAt}<br>
+                조회수: ${post.viewCount}
+            </div>
+            <div class="content">
+                ${post.content}
+            </div>
         </div>
     </main>
 </div>
-
-<script>
-
-    addEventListener('click', e => {
-        const bno = e.target.closest('#post').dataset.bno;
-        window.location.href = '/community/detail?bno=' + bno;
-    })
-</script>
-
 </body>
 </html>

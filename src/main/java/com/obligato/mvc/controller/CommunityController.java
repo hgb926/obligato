@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -40,6 +41,13 @@ public class CommunityController {
         communityService.save(dto);
         log.info("dto: {}", dto.toString());
         return "redirect:/community/list";
+    }
+
+    @GetMapping("/detail")
+    public String detail(@RequestParam int bno, Model model) {
+        Post foundPost = communityService.findOne(bno);
+        model.addAttribute("post", foundPost);
+        return "community/detail";
     }
 
 }

@@ -20,6 +20,13 @@
         (#{userName}, #{title}, #{content})
     </insert>
 
+    <select id="findOne" resultType="post">
+        SELECT
+            *
+        FROM post
+        WHERE post_id = #{postId}
+    </select>
+
 
 
 </mapper>

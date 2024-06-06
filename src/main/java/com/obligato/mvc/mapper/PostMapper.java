@@ -11,6 +11,8 @@ public interface PostMapper {
 
     List<Post> findAll();
 
+    Post findOne(int postId);
+
     boolean save(Post post);
 
 
