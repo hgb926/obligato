@@ -27,6 +27,18 @@
         WHERE post_id = #{postId}
     </select>
 
+    <update id="updateViewCount">
+        UPDATE post
+        SET view_count = view_count + 1
+        WHERE post_id = #{postId}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM
+        post
+        WHERE post_id = #{postId}
+    </delete>
+
 
 
 </mapper>

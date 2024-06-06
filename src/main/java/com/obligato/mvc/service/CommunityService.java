@@ -40,5 +40,13 @@ public class CommunityService {
         return postMapper.findOne(bno);
     }
 
+    public void updateViewCount(int bno) {
+        postMapper.updateViewCount(bno);
+    }
+
+    public void delete(int bno) {
+        postMapper.delete(bno);
+    }
+
 
 }

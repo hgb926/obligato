@@ -15,5 +15,8 @@ public interface PostMapper {
 
     boolean save(Post post);
 
+    void updateViewCount(int postId);
+
+    void delete(int postId);
 
 }

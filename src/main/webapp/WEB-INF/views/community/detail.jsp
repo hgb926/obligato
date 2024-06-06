@@ -129,15 +129,30 @@
         font-size: 16px;
         color: #333;
     }
+    .home {
+        cursor: pointer;
+    }
+    .back-btn {
+        position: absolute;
+        left: 80%;
+        margin-top: 20px;
+    }
+    .delete-modify {
+        position: relative;
+        left: 80%;
+        cursor: pointer;
+    }
+
+
 </style>
 <body>
 <div class="container">
     <header>
-        <h1>Obligato</h1>
+        <h1 class="home">Obligato</h1>
         <nav>
             <a href="../users/sign-up">로그인</a>
             <a href="../users/register">회원가입</a>
-            <a href="">커뮤니티</a>
+            <a href="/community/list">커뮤니티</a>
             <a href="#" class="download-button">앱 다운로드</a>
         </nav>
     </header>
@@ -149,12 +164,39 @@
                 작성자: ${post.userName}<br>
                 작성일: ${post.createdAt}<br>
                 조회수: ${post.viewCount}
+                <div class="delete-modify">
+                    <a class="delete" data-bno ='${post.postId}'>삭제</a>
+                    <a class="modify">수정</a>
+                </div>
+                <hr>
             </div>
             <div class="content">
                 ${post.content}
             </div>
+            <div>
+                <button class="back-btn" type="button" onclick="window.location.href= '/community/list'">목록</button>
+            </div>
         </div>
     </main>
 </div>
+
+<script>
+    document.querySelector('.home').addEventListener("click", e => {
+        window.location.href = "http://localhost:8686/index"
+    })
+
+    let $delete = document.querySelector('.delete');
+    $delete.addEventListener('click', e => {
+        const bno = $delete.dataset.bno;
+        console.log(bno)
+        window.location.href = '/community/delete?bno=' + bno;
+    })
+    let $modify = document.querySelector('.modify');
+    $modify.addEventListener('click', e => {
+        const bno = $delete.dataset.bno;
+        console.log(bno)
+    })
+
+</script>
 </body>
 </html>

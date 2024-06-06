@@ -46,8 +46,16 @@ public class CommunityController {
     @GetMapping("/detail")
     public String detail(@RequestParam int bno, Model model) {
         Post foundPost = communityService.findOne(bno);
+        communityService.updateViewCount(bno);
         model.addAttribute("post", foundPost);
+
         return "community/detail";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam int bno) {
+        communityService.delete(bno);
+        return "redirect:/community/list";
     }
 
 }
