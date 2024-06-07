@@ -143,9 +143,78 @@
         cursor: pointer;
     }
 
+    .none {
+        display: none;
+    }
+
+    .delete-modal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        height: 20%;
+        position: fixed;
+        z-index: 9999;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+
+    }
+
+    .modal-top {
+        width: 40%;
+        height: 30%;
+        background: #EFF8FF;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        z-index: 9999;
+        padding: 20px;
+    }
+
+    .modal-bottom {
+        width: 40%;
+        display: flex;
+        justify-content: space-evenly;
+        background: white;
+        z-index: 9999;
+        padding: 20px;
+    }
+    .modal-bottom .yes {
+        padding: 20px;
+        border-radius: 50%;
+        color: white;
+        background: #007bff;
+        z-index: 9999;
+        cursor: pointer;
+    }
+    .modal-bottom .no {
+        padding: 20px;
+        border-radius: 50%;
+        color: white;
+        background: red;
+        z-index: 9999;
+        cursor: pointer;
+    }
+    .lay-out {
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.7);
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 9998;
+    }
+    .none {
+        display: none;
+    }
+
 
 </style>
 <body>
+<div class="lay-out none"></div>
 <div class="container">
     <header>
         <h1 class="home">Obligato</h1>
@@ -178,24 +247,55 @@
             </div>
         </div>
     </main>
+
+    <div class="delete-modal none">
+        <div class="modal-top">
+            정말 삭제하시겠습니까?
+        </div>
+        <div class="modal-bottom">
+            <div class="yes">예</div>
+            <div class="no">아니오</div>
+        </div>
+    </div>
 </div>
 
 <script>
+
+    const $layOut = document.querySelector('.lay-out')
+    const $deleteModal = document.querySelector('.delete-modal')
+    const $yes = document.querySelector('.yes')
+    const $no = document.querySelector('.no')
+
     document.querySelector('.home').addEventListener("click", e => {
         window.location.href = "http://localhost:8686/index"
     })
 
-    let $delete = document.querySelector('.delete');
+    const $delete = document.querySelector('.delete');
     $delete.addEventListener('click', e => {
+        $layOut.classList.remove('none')
+        $deleteModal.classList.remove('none')
+
+        if (e.target.matches($yes)) {
         const bno = $delete.dataset.bno;
         console.log(bno)
         window.location.href = '/community/delete?bno=' + bno;
+         }
+        if (e.target.matches($no)) {
+            $layOut.classList.add('none')
+            $deleteModal.classList.add('none')
+         }
+
+
     })
-    let $modify = document.querySelector('.modify');
-    $modify.addEventListener('click', e => {
-        const bno = $delete.dataset.bno;
-        console.log(bno)
-    })
+
+
+
+
+    // let $modify = document.querySelector('.modify');
+    // $modify.addEventListener('click', e => {
+    //     const bno = $delete.dataset.bno;
+    //     console.log(bno)
+    // })
 
 </script>
 </body>

@@ -113,11 +113,9 @@
     <main>
         <div class="wrap">
             <h2>회원가입</h2>
-            <form action="#" method="post">
-
+            <form action="/users/register" method="post">
                 <label for="account">계정</label>
                 <input type="text" id="account" name="account" required>
-
 
                 <label for="password">비밀번호</label>
                 <input type="password" id="password" name="password" required>

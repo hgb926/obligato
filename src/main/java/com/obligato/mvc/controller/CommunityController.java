@@ -57,5 +57,8 @@ public class CommunityController {
         communityService.delete(bno);
         return "redirect:/community/list";
     }
+    // 삭제 완성~ 모달이나 한번 해보고 수정처리까지 해보자
+
+
 
 }

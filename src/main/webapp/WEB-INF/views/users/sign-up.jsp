@@ -128,11 +128,17 @@
     <div class="login-form">
       <h2>로그인</h2>
       <form action="/users/sign-up" method="post">
+
         <label for="username">아이디</label>
         <input type="text" id="username" name="username" required>
 
         <label for="password">비밀번호</label>
         <input type="password" id="password" name="password" required>
+
+        <label class="auto-label" for="auto-login">
+          <span><i class="fas fa-sign-in-alt"></i>자동 로그인</span>
+          <input type="checkbox" id="auto-login" name="autoLogin">
+        </label>
 
         <button type="submit">로그인</button>
       </form>
