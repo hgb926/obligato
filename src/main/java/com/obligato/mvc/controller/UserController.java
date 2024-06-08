@@ -3,6 +3,7 @@ package com.obligato.mvc.controller;
 import com.obligato.mvc.dto.request.LoginDto;
 import com.obligato.mvc.dto.request.SignUpDto;
 import com.obligato.mvc.entity.User;
+import com.obligato.mvc.mapper.UserMapper;
 import com.obligato.mvc.service.LoginResult;
 import com.obligato.mvc.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -22,6 +25,7 @@ import javax.servlet.http.HttpSession;
 public class UserController {
 
     private final UserService userService;
+    private final UserMapper userMapper;
 
 
     @GetMapping("/register")
@@ -56,9 +60,9 @@ public class UserController {
     }
 
     @PostMapping("/sign-up")
-    public String signUp(LoginDto dto, HttpSession session) {
+    public String signUp(LoginDto dto, HttpSession session, HttpServletResponse response) {
         log.debug("parameter: {}", dto);
-        LoginResult result = userService.authenticate(dto, session);
+        LoginResult result = userService.authenticate(dto, session, response);
         switch (result) {
             case SUCCESS:
                 return "redirect:/index";
@@ -69,6 +73,4 @@ public class UserController {
         }
         return null;
     }
-
-
 }

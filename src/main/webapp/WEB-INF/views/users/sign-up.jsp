@@ -115,6 +115,9 @@
 <div class="container">
   <header>
     <h1>Obligato</h1>
+    <c:if test="${user != null}">
+      <div>${user.name}님, 환영합니다!</div>
+    </c:if>
     <nav>
       <ul>
 

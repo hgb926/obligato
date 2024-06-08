@@ -1,5 +1,6 @@
 package com.obligato.mvc.mapper;
 
+import com.obligato.mvc.dto.response.AutoLoginDto;
 import com.obligato.mvc.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -21,5 +22,7 @@ public interface UserMapper {
      * @return - 중복이면 true, 아니면 false
      */
     boolean existsById(@Param("type") String type, @Param("keyword") String keyword);
+
+    void updateAutoLogin(AutoLoginDto dto);
 
 }
