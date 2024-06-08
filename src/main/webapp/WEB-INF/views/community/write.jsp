@@ -84,56 +84,86 @@
 
 </style>
 <body>
-<%--<header>--%>
-<%--    <h1>Obligato</h1>--%>
-<%--    &lt;%&ndash;        <c:if test="${userInfo != null}">&ndash;%&gt;--%>
-<%--    &lt;%&ndash;            <div>${userInfo.nickName}님, 환영합니다!</div>&ndash;%&gt;--%>
-<%--    &lt;%&ndash;        </c:if>&ndash;%&gt;--%>
-<%--    <nav>--%>
-<%--        <ul>--%>
-<%--            &lt;%&ndash;                <li><a href="users/sign-up">마이페이지</a></li>&ndash;%&gt;--%>
-<%--            <li><a href="community/list">커뮤니티</a></li>--%>
-<%--            &lt;%&ndash;                <li><a href="#">로그아웃</a></li>&ndash;%&gt;--%>
+<div class="container">
+    <header>
+        <h1>Obligato</h1>
+
+            <div>${user.name}님, 환영합니다!</div>
+        <nav>
+            <ul>
+
+                    <li><a href="users/my-page">마이페이지</a></li>
+                    <li><a href="community/list">커뮤니티</a></li>
+                    <li><a href="users/sign-out">로그아웃</a></li>
 
 
-<%--            <li><a href="users/sign-up">로그인</a></li>--%>
-<%--            <li><a href="users/register">회원가입</a></li>--%>
-<%--            &lt;%&ndash;                <li><a href="#">커뮤니티</a></li>&ndash;%&gt;--%>
+            </ul>
+            <button>앱 다운로드</button>
+        </nav>
+    </header>
+    <main>
+        <div class="main-content">
+            <h1>함께 할 때 더 즐거운 순간</h1>
+            <%--    <p>남녀노소할것없이 지식공유를 통하여 OKKY에서 다양한 사람들과 협업을 하거나 정보를 서로 나눠보세요.</p>--%>
 
-<%--        </ul>--%>
-<%--        <button>앱 다운로드</button>--%>
-<%--    </nav>--%>
-<%--</header>--%>
-<div class="main-content">
-    <h1>함께 할 때 더 즐거운 순간</h1>
-<%--    <p>남녀노소할것없이 지식공유를 통하여 OKKY에서 다양한 사람들과 협업을 하거나 정보를 서로 나눠보세요.</p>--%>
+            <%--        <div class="form-group">--%>
+            <%--            <label for="topic">토픽</label>--%>
+            <%--            <select id="topic">--%>
+            <%--                <option value="">토픽을 선택해주세요.</option>--%>
+            <%--            </select>--%>
+            <%--        </div>--%>
+            <form action="/community/write" method="post">
+
+
+                <div class="form-group">
+                    <label for="title">제목</label>
+                    <input type="text" id="title" name="title" placeholder="제목을 입력해주세요.">
+                </div>
+
+                <div class="form-group">
+                    <label for="writer">작성자</label>
+                    <input type="text" id="writer" name="userName" placeholder="작성자 이름을 입력해주세요." value="${user.userName}" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="content">본문</label>
+                    <textarea id="content" name="content" placeholder="내용을 입력해주세요."></textarea>
+                </div>
+
+                <button type="submit">등록</button>
+            </form>
+        </div>
+    </main>
+</div>
+
+    <%--    <p>남녀노소할것없이 지식공유를 통하여 OKKY에서 다양한 사람들과 협업을 하거나 정보를 서로 나눠보세요.</p>--%>
+
+    <%--        <div class="form-group">--%>
+    <%--            <label for="topic">토픽</label>--%>
+    <%--            <select id="topic">--%>
+    <%--                <option value="">토픽을 선택해주세요.</option>--%>
+    <%--            </select>--%>
+    <%--        </div>--%>
+<%--    <form action="/community/write" method="post">--%>
+
 
 <%--        <div class="form-group">--%>
-        <%--            <label for="topic">토픽</label>--%>
-        <%--            <select id="topic">--%>
-        <%--                <option value="">토픽을 선택해주세요.</option>--%>
-        <%--            </select>--%>
-        <%--        </div>--%>
-    <form action="/community/write" method="post">
+<%--            <label for="title">제목</label>--%>
+<%--            <input type="text" id="title" name="title" placeholder="제목을 입력해주세요.">--%>
+<%--        </div>--%>
 
+<%--        <div class="form-group">--%>
+<%--            <label for="writer">작성자 이름</label>--%>
+<%--            <input type="text" id="writer" name="userName" placeholder="작성자 이름을 입력해주세요.">--%>
+<%--        </div>--%>
 
-    <div class="form-group">
-            <label for="title">제목</label>
-            <input type="text" id="title" name="title" placeholder="제목을 입력해주세요.">
-        </div>
+<%--        <div class="form-group">--%>
+<%--            <label for="content">본문</label>--%>
+<%--            <textarea id="content" name="content" placeholder="내용을 입력해주세요."></textarea>--%>
+<%--        </div>--%>
 
-        <div class="form-group">
-            <label for="writer">작성자 이름</label>
-            <input type="text" id="writer" name="userName" placeholder="작성자 이름을 입력해주세요.">
-        </div>
+<%--        <button type="submit">등록</button>--%>
+<%--    </form>--%>
 
-        <div class="form-group">
-            <label for="content">본문</label>
-            <textarea id="content" name="content" placeholder="내용을 입력해주세요."></textarea>
-        </div>
-
-        <button type="submit">등록</button>
-    </form>
-</div>
 </body>
 </html>

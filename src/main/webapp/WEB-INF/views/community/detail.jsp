@@ -269,41 +269,30 @@
 
 <script>
 
-    const $layOut = document.querySelector('.lay-out')
-    const $deleteModal = document.querySelector('.delete-modal')
-    const $yes = document.querySelector('.yes')
-    const $no = document.querySelector('.no')
+    const $layOut = document.querySelector('.lay-out');
+    const $deleteModal = document.querySelector('.delete-modal');
+    const $yes = document.querySelector('.yes');
+    const $no = document.querySelector('.no');
+    const $deleteButtons = document.querySelectorAll('.delete');
 
-    document.querySelector('.home').addEventListener("click", e => {
-        window.location.href = "http://localhost:8686/index"
-    })
+    $deleteButtons.forEach($delete => {
+        $delete.addEventListener('click', e => {
+            $layOut.classList.remove('none');
+            $deleteModal.classList.remove('none');
 
-    const $delete = document.querySelector('.delete');
-    $delete.addEventListener('click', e => {
-        $layOut.classList.remove('none')
-        $deleteModal.classList.remove('none')
+            const bno = e.target.dataset.bno;
+            console.log(bno)
 
-        if (e.target.matches($yes)) {
-        const bno = $delete.dataset.bno;
-        console.log(bno)
-        window.location.href = '/community/delete?bno=' + bno;
-         }
-        if (e.target.matches($no)) {
-            $layOut.classList.add('none')
-            $deleteModal.classList.add('none')
-         }
+            $yes.addEventListener('click', () => {
+                window.location.href = '/community/delete?bno=' + bno;
+            });
 
-
-    })
-
-
-
-
-    // let $modify = document.querySelector('.modify');
-    // $modify.addEventListener('click', e => {
-    //     const bno = $delete.dataset.bno;
-    //     console.log(bno)
-    // })
+            $no.addEventListener('click', () => {
+                $layOut.classList.add('none');
+                $deleteModal.classList.add('none');
+            });
+        });
+    });
 
 </script>
 </body>

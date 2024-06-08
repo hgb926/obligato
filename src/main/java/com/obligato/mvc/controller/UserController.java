@@ -51,7 +51,7 @@ public class UserController {
             return "redirect:/users/sign-up";
         }
 
-        // 로그인한 사람의 화면 처리 해야함.
+
 
     }
 

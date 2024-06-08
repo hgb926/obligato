@@ -117,9 +117,11 @@
     <h1>Obligato</h1>
     <nav>
       <ul>
-        <li><a href="/index">홈</a></li>
-        <li><a href="register">회원가입</a></li>
-        <li><a href="/community/list">커뮤니티</a></li>
+
+          <li><a href="users/sign-up">로그인</a></li>
+          <li><a href="community/list">커뮤니티</a></li>
+          <li><a href="users/register">회원가입</a></li>
+
       </ul>
       <button>앱 다운로드</button>
     </nav>
