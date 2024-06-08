@@ -39,6 +39,13 @@
         WHERE post_id = #{postId}
     </delete>
 
+    <update id="modify">
+        UPDATE post
+        SET title = #{title},
+        content = #{content}
+        WHERE post_id = #{postId}
+    </update>
+
 
 
 </mapper>

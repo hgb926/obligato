@@ -1,5 +1,6 @@
 package com.obligato.mvc.service;
 
+import com.obligato.mvc.dto.request.ModifyPostDto;
 import com.obligato.mvc.dto.request.SavePostDto;
 import com.obligato.mvc.dto.response.PostResponseDto;
 import com.obligato.mvc.entity.Post;
@@ -49,4 +50,7 @@ public class CommunityService {
     }
 
 
+    public void modify(ModifyPostDto dto) {
+        postMapper.modify(dto);
+    }
 }

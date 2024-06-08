@@ -1,5 +1,6 @@
 package com.obligato.mvc.controller;
 
+import com.obligato.mvc.dto.request.ModifyPostDto;
 import com.obligato.mvc.dto.request.SavePostDto;
 import com.obligato.mvc.dto.response.PostResponseDto;
 import com.obligato.mvc.entity.Post;
@@ -9,10 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -57,7 +55,20 @@ public class CommunityController {
         communityService.delete(bno);
         return "redirect:/community/list";
     }
-    // 삭제 완성~ 모달이나 한번 해보고 수정처리까지 해보자
+
+
+    @GetMapping("/modify")
+    public String modify(int bno, Model model) {
+        Post foundPost = communityService.findOne(bno);
+        model.addAttribute("post", foundPost);
+        return "community/modify";
+    }
+
+    @PostMapping("/modify")
+    public String modifyPost(ModifyPostDto dto) {
+        communityService.modify(dto);
+        return "redirect:/community/detail?bno=" + dto.getPostId();
+    }
 
 
 

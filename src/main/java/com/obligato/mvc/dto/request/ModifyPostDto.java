@@ -9,8 +9,9 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Setter
-public class SavePostDto {
+public class ModifyPostDto {
 
+    private int postId;
     private String title;
     private String userName;
     private String content;

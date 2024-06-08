@@ -7,6 +7,40 @@
     <title>Web Study</title>
 </head>
 <style>
+
+    nav {
+        display: flex;
+        align-items: center;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 15px;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: inline;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #0073e6;
+        font-weight: bold;
+    }
+
+    nav button {
+        background-color: #0073e6;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 20px;
+    }
+
     body {
         font-family: Arial, sans-serif;
         background-color: #f0f8ff;
@@ -226,9 +260,9 @@
                     <li><a href="users/sign-out">로그아웃</a></li>
                 </c:if>
                 <c:if test="${user == null}">
-                    <li><a href="users/sign-up">로그인</a></li>
+                    <li><a href="/users/sign-up">로그인</a></li>
                     <li><a href="community/list">커뮤니티</a></li>
-                    <li><a href="users/register">회원가입</a></li>
+                    <li><a href="/users/register">회원가입</a></li>
                 </c:if>
             </ul>
         </nav>
@@ -244,7 +278,7 @@
                 <c:if test="${user.userName eq post.userName}">
                 <div class="delete-modify">
                     <a class="delete" data-bno ='${post.postId}'>삭제</a>
-                    <a class="modify">수정</a>
+                    <a class="modify" data-bno ='${post.postId}'>수정</a>
                 </div>
                 </c:if>
                 <hr>
@@ -276,6 +310,7 @@
     const $yes = document.querySelector('.yes');
     const $no = document.querySelector('.no');
     const $deleteButtons = document.querySelectorAll('.delete');
+    const $modify = document.querySelector('.modify')
 
     $deleteButtons.forEach($delete => {
         $delete.addEventListener('click', e => {
@@ -295,6 +330,14 @@
             });
         });
     });
+
+    $modify.addEventListener('click', e => {
+        const bno = e.target.dataset.bno;
+        window.location.href = '/community/modify?bno=' + bno;
+
+    })
+
+
 
 </script>
 </body>
