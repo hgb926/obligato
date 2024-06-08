@@ -241,10 +241,12 @@
                 작성자: ${post.userName}<br>
                 작성일: ${post.createdAt}<br>
                 조회수: ${post.viewCount}
+                <c:if test="${user.userName eq post.userName}">
                 <div class="delete-modify">
                     <a class="delete" data-bno ='${post.postId}'>삭제</a>
                     <a class="modify">수정</a>
                 </div>
+                </c:if>
                 <hr>
             </div>
             <div class="content">
