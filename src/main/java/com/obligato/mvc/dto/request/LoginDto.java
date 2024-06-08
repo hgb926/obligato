@@ -8,9 +8,10 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode
+@Setter
 public class LoginDto {
 
-    private String userName; // camelcase 문제 생길 가능성
+    private String username; // camelcase 문제 생길 가능성
     private String password;
     private boolean autoLogin;
 }

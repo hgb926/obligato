@@ -219,10 +219,18 @@
     <header>
         <h1 class="home">Obligato</h1>
         <nav>
-            <a href="../users/sign-up">로그인</a>
-            <a href="../users/register">회원가입</a>
-            <a href="/community/list">커뮤니티</a>
-            <a href="#" class="download-button">앱 다운로드</a>
+            <ul>
+                <c:if test="${user != null}">
+                    <li><a href="users/my-page">마이페이지</a></li>
+                    <li><a href="community/list">커뮤니티</a></li>
+                    <li><a href="users/sign-out">로그아웃</a></li>
+                </c:if>
+                <c:if test="${user == null}">
+                    <li><a href="users/sign-up">로그인</a></li>
+                    <li><a href="community/list">커뮤니티</a></li>
+                    <li><a href="users/register">회원가입</a></li>
+                </c:if>
+            </ul>
         </nav>
     </header>
     <main>

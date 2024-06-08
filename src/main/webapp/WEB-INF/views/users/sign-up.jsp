@@ -145,5 +145,16 @@
     </div>
   </main>
 </div>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const message = params.get('error')
+
+  if (message === 'no_access') {
+    alert("ID가 조회되지 않습니다.")
+  } else if (message === 'no_password') {
+    alert("비밀번호를 확인해주세요.")
+  }
+
+</script>
 </body>
 </html>

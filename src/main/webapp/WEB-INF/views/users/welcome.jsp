@@ -23,7 +23,7 @@
             <ul>
                 <li><a href="users/sign-up">마이페이지</a></li>
                 <li><a href="community/list">커뮤니티</a></li>
-                <li><a href="#">로그아웃</a></li>
+                <li><a href="users/sign-out">로그아웃</a></li>
             </ul>
             <button>앱 다운로드</button>
         </nav>

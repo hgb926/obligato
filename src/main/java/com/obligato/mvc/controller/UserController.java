@@ -3,6 +3,7 @@ package com.obligato.mvc.controller;
 import com.obligato.mvc.dto.request.LoginDto;
 import com.obligato.mvc.dto.request.SignUpDto;
 import com.obligato.mvc.entity.User;
+import com.obligato.mvc.service.LoginResult;
 import com.obligato.mvc.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/users")
@@ -33,12 +36,39 @@ public class UserController {
         return "users/sign-up";
     }
 
+
+
     @PostMapping("/register")
-    public String register(SignUpDto dto) {
+    public String register(SignUpDto dto, HttpSession session) {
         log.debug("왜안됨??????");
         log.debug("parameter: {}", dto);
         boolean flag = userService.join(dto);
-        return flag ? "redirect:/index" : "redirect:/users/sign-up";
+        if (flag) {
+            User user = dto.toEntity();
+            session.setAttribute("user", user);
+            return "redirect:/index";
+        } else {
+            return "redirect:/users/sign-up";
+        }
+
+        // 로그인한 사람의 화면 처리 해야함.
+
     }
+
+    @PostMapping("/sign-up")
+    public String signUp(LoginDto dto, HttpSession session) {
+        log.debug("parameter: {}", dto);
+        LoginResult result = userService.authenticate(dto, session);
+        switch (result) {
+            case SUCCESS:
+                return "redirect:/index";
+            case NO_ACC:
+                return "redirect:/users/sign-up?error=no_access";
+            case NO_PW:
+                return "redirect:/users/sign-up?error=no_password";
+        }
+        return null;
+    }
+
 
 }

@@ -98,6 +98,17 @@
     /*    display: flex;*/
     /*    justify-content: center;*/
     /*}*/
+    .warning {
+        color: red;
+    }
+    .success {
+        color: skyblue;
+    }
+    .secondWrap {
+        display: flex;
+    }
+
+
 </style>
 <body>
 <div class="container">
@@ -105,7 +116,7 @@
         <h1>Obligato</h1>
         <nav>
             <a href="sign-up">로그인</a>
-            <a href="">회원가입</a>
+            <a href="register">회원가입</a>
             <a href="../community/list">커뮤니티</a>
             <a href="#" class="download-button">앱 다운로드</a>
         </nav>
@@ -115,24 +126,54 @@
             <h2>회원가입</h2>
             <form action="/users/register" method="post">
                 <label for="account">계정</label>
-                <input type="text" id="account" name="account" required>
+                <div class="secondWrap"><input type="text" id="account" name="account" required><span id="idMessage"></span></div>
 
                 <label for="password">비밀번호</label>
-                <input type="password" id="password" name="password" required>
+                <div class="secondWrap"><input type="password" id="password" name="password" required><span id="pwMessage"></span></div>
 
                 <label for="confirm-password">비밀번호 확인</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
+                <div class="secondWrap"><input type="password" id="confirm-password" name="confirm-password" required><span id="pwCheckMessage"></span></div>
 
                 <label for="username">성명</label>
-                <input type="text" id="username" name="username" required>
+                <div class="secondWrap"><input type="text" id="username" name="username" required><span id="nameMessage"></span></div>
 
                 <label for="email">이메일</label>
-                <input type="email" id="email" name="email" required>
+                <div class="secondWrap"><input type="email" id="email" name="email" required><span id="emailMessage"></span></div>
 
                 <button type="submit">가입하기</button>
             </form>
         </div>
     </main>
 </div>
+<script>
+
+    const $account = document.getElementById('account');
+    const idMsg = document.getElementById('idMessage')
+    $account.addEventListener('keyup', e => {
+        if ($account.value.length < 4 || $account.value.length > 14) {
+            idMsg.classList.remove('success')
+            idMsg.classList.add('warning')
+            idMsg.textContent = "계정명은 최소 4글자, 최대 14글자 입니다."
+        } else {
+            idMsg.classList.remove('warning')
+            idMsg.classList.add('success')
+            idMsg.textContent = "사용 가능한 ID입니다."
+        }
+    });
+
+    const $name = document.getElementById('username');
+    const nameMsg = document.getElementById('nameMessage')
+    $name.addEventListener('keyup', e => {
+        if ($name.value.length < 2 || $name.value.length > 6) {
+            nameMsg.classList.remove('success')
+            nameMsg.classList.add('warning')
+            nameMsg.textContent = "실명은 최소 2글자, 최대 6글자 입니다."
+        } else {
+            nameMsg.classList.remove('warning')
+            nameMsg.classList.add('success')
+            nameMsg.textContent = "사용 가능한 이름입니다."
+        }
+    })
+</script>
 </body>
 </html>
