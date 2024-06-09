@@ -109,6 +109,9 @@
         font-size: 12px;
         color: #999;
     }
+    .none {
+        display: none;
+    }
 
 </style>
 <body>
@@ -131,7 +134,8 @@
         <button class="write-button">악기 별</button>
         <button class="write-button">지역 별</button>
         <button class="write-button">페이 별</button>
-        <button class="write-button">최신 순</button>
+        <button class="write-button newest">최신 순</button>
+        <button class="write-button oldest none">오래된 순</button>
         <div class="posts">
             <c:forEach var="list" items="${postList}">
 
@@ -153,6 +157,38 @@
         const bno = e.target.closest('#post').dataset.bno;
         window.location.href = '/community/detail?bno=' + bno;
     })
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const $new = document.querySelector('.newest');
+        const $old = document.querySelector('.oldest');
+
+        // 현재 URL에서 sort 파라미터 확인
+        const urlParams = new URLSearchParams(window.location.search);
+        const sortParam = urlParams.get('sort');
+
+        if (sortParam === 'newest') {
+            $new.classList.add('none');
+            $old.classList.remove('none');
+        } else if (sortParam === 'oldest') {
+            $old.classList.add('none');
+            $new.classList.remove('none');
+        }
+
+        $new.addEventListener('click', e => {
+            $new.classList.add('none');
+            $old.classList.remove('none');
+            window.location.href = '/community/list?sort=newest';
+        });
+
+        $old.addEventListener('click', e => {
+            $old.classList.add('none');
+            $new.classList.remove('none');
+            window.location.href = '/community/list?sort=oldest';
+        });
+    });
+
+
+
 </script>
 
 </body>

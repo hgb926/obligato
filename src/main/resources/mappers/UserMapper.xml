@@ -48,4 +48,11 @@
         WHERE username = #{account}
     </update>
 
+    <select id="findBySessionId" resultType="user">
+        SELECT
+        *
+        FROM user
+        WHERE session_id = #{sessionId}
+    </select>
+
 </mapper>

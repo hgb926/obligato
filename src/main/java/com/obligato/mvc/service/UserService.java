@@ -3,8 +3,10 @@ package com.obligato.mvc.service;
 import com.obligato.mvc.dto.request.LoginDto;
 import com.obligato.mvc.dto.request.SignUpDto;
 import com.obligato.mvc.dto.response.AutoLoginDto;
+import com.obligato.mvc.dto.response.LoginUserInfoDto;
 import com.obligato.mvc.entity.User;
 import com.obligato.mvc.mapper.UserMapper;
+import com.obligato.util.LoginUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 //import org.springframework.security.crypto.password.PasswordEncoder;
@@ -54,7 +56,7 @@ public class UserService {
             if (dto.isAutoLogin()) {
                 log.debug("AUTO LOGIN CHECK!");
                 String sessionId = session.getId();
-                Cookie autoLoginCookie = new Cookie("autoLogin", sessionId);
+                Cookie autoLoginCookie = new Cookie(LoginUtil.AUTO_LOGIN_COOKIE, sessionId);
                 autoLoginCookie.setPath("/");
                 autoLoginCookie.setMaxAge(60*60*24*90);
                 response.addCookie(autoLoginCookie);
@@ -76,12 +78,12 @@ public class UserService {
 
     }
 
+    public static void maintainLoginState(HttpSession session, User foundUser) {
+        log.info("{}님 로그인 성공", foundUser.getUserName());
+        int maxInactiveInterval = session.getMaxInactiveInterval();
+        session.setMaxInactiveInterval(60 * 60);
+        log.debug("session time: {}", maxInactiveInterval);
+        session.setAttribute(LoginUtil.LOGIN, new LoginUserInfoDto(foundUser));
+    }
 
-//    public LoginDto convertToUser(SignUpDto dto) {
-//        // db에 조회해서 가져온다.
-//        LoginDto loginDto = LoginDto.builder()
-//                .username(dto.getUsername())
-//                .password(dto.getPassword())
-//                .build();
-//    }
 }

@@ -40,7 +40,7 @@
     }
     body {
         font-family: Arial, sans-serif;
-        background-color: #f0f8ff;
+        background-color: #89c0ec;
         margin: 0;
         padding: 0;
     }
@@ -74,7 +74,7 @@
     }
 
     main {
-        background-color: #ffffff;
+        background-color: #89c0ec;
         padding: 40px;
         margin: 20px 0;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

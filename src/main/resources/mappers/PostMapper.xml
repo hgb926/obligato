@@ -10,7 +10,12 @@
         SELECT
             *
         FROM post
+        <if test="sort == 'newest'">
         ORDER BY post_id DESC
+        </if>
+        <if test="sort == 'oldest'">
+            ORDER BY post_id ASC
+        </if>
     </select>
 
     <insert id="save">

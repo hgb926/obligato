@@ -23,8 +23,8 @@ public class CommunityController {
     private final CommunityService communityService;
 
     @GetMapping("/list")
-    public String list(Model model) {
-        List<PostResponseDto> postList = communityService.findAll();
+    public String list(@RequestParam(defaultValue = "newest") String sort, Model model) {
+        List<PostResponseDto> postList = communityService.findAll(sort);
         model.addAttribute("postList", postList);
         return "community/list";
     }

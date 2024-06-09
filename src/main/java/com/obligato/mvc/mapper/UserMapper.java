@@ -25,4 +25,6 @@ public interface UserMapper {
 
     void updateAutoLogin(AutoLoginDto dto);
 
+    User findBySessionId(String sessionId);
+
 }

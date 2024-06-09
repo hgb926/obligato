@@ -19,10 +19,10 @@ public class CommunityService {
 
     private final PostMapper postMapper;
 
-    public List<PostResponseDto> findAll() {
-        List<Post> postList = postMapper.findAll();
+    public List<PostResponseDto> findAll(String sort) {
+        List<Post> postList = postMapper.findAll(sort);
         List<PostResponseDto> dtoList = postList.stream()
-                .map(p -> new PostResponseDto(p))
+                .map(PostResponseDto::new)
                 .collect(Collectors.toList());
         return dtoList;
     }

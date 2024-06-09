@@ -1,4 +1,4 @@
-package com.obligato.interceptor;
+package com.obligato.mvc.interceptor;
 
 
 import com.obligato.util.LoginUtil;

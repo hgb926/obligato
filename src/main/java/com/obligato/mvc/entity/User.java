@@ -32,4 +32,6 @@ public class User {
     private String email;
     private String name; // 유저닉네임(한기범)
     private LocalDateTime createdAt;
+    private String sessionId;
+    private LocalDateTime limitTime;
 }
