@@ -43,7 +43,7 @@
         margin-bottom: 5px;
     }
 
-    input[type="text"], select, textarea {
+    input[type="text"], select, textarea, input[type="date"] {
         width: 100%;
         padding: 10px;
         border: 1px solid #ccc;
@@ -122,7 +122,7 @@
                 </label>
                 <label>
                     # 지역 <br>
-                    <select>
+                    <select name="location">
                         <option value="seoul">서울</option>
                         <!-- 경기도 도시들 -->
                         <option value="suwon">수원</option>
@@ -171,7 +171,7 @@
 
                 <label>
                     # 페이 <br>
-                    <select>
+                    <select name="pay">
                         <option value="0-50000">0 ~ 50,000</option>
                         <option value="50001-100000">50,001 ~ 100,000</option>
                         <option value="100001-150000">100,001 ~ 150,000</option>
@@ -188,6 +188,9 @@
                         <option value="650001-700000">650,001 ~ 700,000</option>
                     </select>
                 </label>
+
+                <label for="date-picker"># 날짜</label>
+                <input type="date" id="date-picker" name="date">
 
 
                 <div class="form-group">

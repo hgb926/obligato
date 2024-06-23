@@ -31,6 +31,7 @@ public class Performance {
     private String title;
     private String description;
     private String location;
-    private LocalDateTime date;
-    private LocalDateTime createdAt;
+    private LocalDateTime date; // 연주 날짜
+    private LocalDateTime createdAt; // 게시글 생성 시간
+    private int postId;
 }
