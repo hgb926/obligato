@@ -104,15 +104,90 @@
     <main>
         <div class="main-content">
             <h1>함께 할 때 더 즐거운 순간</h1>
-            <%--    <p>남녀노소할것없이 지식공유를 통하여 OKKY에서 다양한 사람들과 협업을 하거나 정보를 서로 나눠보세요.</p>--%>
-
-            <%--        <div class="form-group">--%>
-            <%--            <label for="topic">토픽</label>--%>
-            <%--            <select id="topic">--%>
-            <%--                <option value="">토픽을 선택해주세요.</option>--%>
-            <%--            </select>--%>
-            <%--        </div>--%>
             <form action="/community/write" method="post">
+
+                <label>
+                    # 악기 <br>
+                    <select name="instruments">
+                        <option value="flute">flute</option>
+                        <option value="oboe">oboe</option>
+                        <option value="clarinet">clarinet</option>
+                        <option value="bassoon">bassoon</option>
+                        <option value="horn">horn</option>
+                        <option value="trumpet">trumpet</option>
+                        <option value="trombone">trombone</option>
+                        <option value="baseTrombone">base-trombone</option>
+                        <option value="tuba">tuba</option>
+                    </select>
+                </label>
+                <label>
+                    # 지역 <br>
+                    <select>
+                        <option value="seoul">서울</option>
+                        <!-- 경기도 도시들 -->
+                        <option value="suwon">수원</option>
+                        <option value="ilsan">일산</option>
+                        <option value="yongin">용인</option>
+                        <option value="seongnam">성남</option>
+                        <option value="bucheon">부천</option>
+                        <option value="ansan">안산</option>
+                        <option value="anyang">안양</option>
+                        <option value="gumdan">검단</option>
+                        <option value="namyangju">남양주</option>
+                        <option value="hwaseong">화성</option>
+                        <option value="pyeongtaek">평택</option>
+                        <option value="uiejeongbu">의정부</option>
+                        <option value="paju">파주</option>
+                        <option value="siheung">시흥</option>
+                        <option value="gimpo">김포</option>
+                        <option value="gwangmyeong">광명</option>
+                        <option value="gunpo">군포</option>
+                        <option value="ic">의왕</option>
+                        <option value="hanam">하남</option>
+                        <option value="yongin">용인</option>
+                        <option value="guri">구리</option>
+                        <option value="an">안성</option>
+                        <option value="ic">이천</option>
+                        <option value="yaju">여주</option>
+                        <!-- 그 외 주요 도시 -->
+                        <option value="busan">부산</option>
+                        <option value="incheon">인천</option>
+                        <option value="daegu">대구</option>
+                        <option value="daejeon">대전</option>
+                        <option value="gwangju">광주</option>
+                        <option value="ulsan">울산</option>
+                        <option value="jeonju">전주</option>
+                        <option value="cheongju">청주</option>
+                        <option value="pohang">포항</option>
+                        <option value="jeju">제주</option>
+                        <option value="changwon">창원</option>
+                    </select>
+                </label>
+
+<%--                <label>--%>
+<%--                    # 페이 <br>--%>
+<%--                    <input type=text placeholder="페이를 입력하세요.">--%>
+<%--                </label>--%>
+
+                <label>
+                    # 페이 <br>
+                    <select>
+                        <option value="0-50000">0 ~ 50,000</option>
+                        <option value="50001-100000">50,001 ~ 100,000</option>
+                        <option value="100001-150000">100,001 ~ 150,000</option>
+                        <option value="150001-200000">150,001 ~ 200,000</option>
+                        <option value="200001-250000">200,001 ~ 250,000</option>
+                        <option value="250001-300000">250,001 ~ 300,000</option>
+                        <option value="300001-350000">300,001 ~ 350,000</option>
+                        <option value="350001-400000">350,001 ~ 400,000</option>
+                        <option value="400001-450000">400,001 ~ 450,000</option>
+                        <option value="450001-500000">450,001 ~ 500,000</option>
+                        <option value="500001-550000">500,001 ~ 550,000</option>
+                        <option value="550001-600000">550,001 ~ 600,000</option>
+                        <option value="600001-650000">600,001 ~ 650,000</option>
+                        <option value="650001-700000">650,001 ~ 700,000</option>
+                    </select>
+                </label>
 
 
                 <div class="form-group">

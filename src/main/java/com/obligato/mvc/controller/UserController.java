@@ -80,5 +80,11 @@ public class UserController {
         return null;
     }
 
+    @GetMapping("/sign-out")
+    public String signOut(HttpSession session) {
+        session.removeAttribute("user");
+        return "redirect:/index";
+    }
+
 
 }

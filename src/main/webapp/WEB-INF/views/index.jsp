@@ -53,7 +53,7 @@
                 <c:if test="${user != null}">
                 <li><a href="users/my-page">마이페이지</a></li>
                 <li><a href="community/list">커뮤니티</a></li>
-                <li><a href="users/sign-out">로그아웃</a></li>
+                <li><a id="logout" href="users/sign-out">로그아웃</a></li>
                 </c:if>
                 <c:if test="${user == null}">
                 <li><a href="users/sign-up">로그인</a></li>
@@ -94,5 +94,15 @@
         <button>변경하기</button>
     </div>
 </div>
+<script>
+    const $logout = document.getElementById('logout');
+    $logout.addEventListener('click', e => {
+        let flag = confirm('로그아웃 하시겠습니까?');
+        if (flag) {
+            return window.location.href = ''
+        }
+
+    })
+</script>
 </body>
 </html>
