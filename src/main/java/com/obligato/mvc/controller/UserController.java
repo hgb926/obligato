@@ -13,8 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.filter.RequestContextFilter;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -26,6 +28,7 @@ public class UserController {
 
     private final UserService userService;
     private final UserMapper userMapper;
+    private final RequestContextFilter requestContextFilter;
 
 
     @GetMapping("/register")
@@ -44,7 +47,6 @@ public class UserController {
 
     @PostMapping("/register")
     public String register(SignUpDto dto, HttpSession session) {
-        log.debug("왜안됨??????");
         log.debug("parameter: {}", dto);
         boolean flag = userService.join(dto);
         if (flag) {
@@ -60,11 +62,15 @@ public class UserController {
     }
 
     @PostMapping("/sign-up")
-    public String signUp(LoginDto dto, HttpSession session, HttpServletResponse response) {
+    public String signUp(LoginDto dto, HttpServletResponse response, HttpServletRequest request) {
         log.debug("parameter: {}", dto);
+        HttpSession session = request.getSession();
         LoginResult result = userService.authenticate(dto, session, response);
+
         switch (result) {
             case SUCCESS:
+                String redirect = (String) session.getAttribute("redirect");
+                if (redirect != null) session.removeAttribute("redirect");
                 return "redirect:/index";
             case NO_ACC:
                 return "redirect:/users/sign-up?error=no_access";
@@ -73,4 +79,6 @@ public class UserController {
         }
         return null;
     }
+
+
 }

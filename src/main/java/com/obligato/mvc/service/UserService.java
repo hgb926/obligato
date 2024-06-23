@@ -69,7 +69,7 @@ public class UserService {
                                 .build()
                 );
             }
-
+            maintainLoginState(session, foundMember);
             return SUCCESS;
         } else {
             log.info("비밀번호 불일치");
@@ -85,5 +85,9 @@ public class UserService {
         log.debug("session time: {}", maxInactiveInterval);
         session.setAttribute(LoginUtil.LOGIN, new LoginUserInfoDto(foundUser));
     }
+
+    // 뭐하지?
+    // 일단 자동로그인 잘 안됨.
+
 
 }

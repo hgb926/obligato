@@ -169,7 +169,7 @@
 </div>
 
 <script>
-    // 수정 로직 해보자~~
+
 </script>
 </body>
 </html>
