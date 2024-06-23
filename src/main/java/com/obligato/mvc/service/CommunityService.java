@@ -37,8 +37,11 @@ public class CommunityService {
         postMapper.save(post);
     }
 
-    public Post findOne(int bno) {
-        return postMapper.findOne(bno);
+    public PostResponseDto findOne(int bno) {
+        Post found = postMapper.findOne(bno);
+        PostResponseDto dto = new PostResponseDto(found);
+        log.debug("Found post: {}", found);
+        return dto;
     }
 
     public void updateViewCount(int bno) {

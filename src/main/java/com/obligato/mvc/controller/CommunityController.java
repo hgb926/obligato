@@ -43,7 +43,8 @@ public class CommunityController {
 
     @GetMapping("/detail")
     public String detail(@RequestParam int bno, Model model) {
-        Post foundPost = communityService.findOne(bno);
+        PostResponseDto foundPost = communityService.findOne(bno);
+
         communityService.updateViewCount(bno);
         model.addAttribute("post", foundPost);
 
@@ -59,7 +60,7 @@ public class CommunityController {
 
     @GetMapping("/modify")
     public String modify(int bno, Model model) {
-        Post foundPost = communityService.findOne(bno);
+        PostResponseDto foundPost = communityService.findOne(bno);
         model.addAttribute("post", foundPost);
         return "community/modify";
     }
