@@ -43,7 +43,7 @@
         margin-bottom: 5px;
     }
 
-    input[type="text"], select, textarea, input[type="date"] {
+    input[type="text"], select, textarea, input[type="date"], input[type="number"] {
         width: 100%;
         padding: 10px;
         border: 1px solid #ccc;
@@ -86,7 +86,7 @@
 <body>
 <div class="container">
     <header>
-        <h1>Obligato</h1>
+        <h1 style="cursor: pointer" onclick="window.location.href=`/`">Obligato</h1>
 
             <div>${user.name}님, 환영합니다!</div>
         <nav>
@@ -164,30 +164,12 @@
                     </select>
                 </label>
 
-<%--                <label>--%>
-<%--                    # 페이 <br>--%>
-<%--                    <input type=text placeholder="페이를 입력하세요.">--%>
-<%--                </label>--%>
-
                 <label>
                     # 페이 <br>
-                    <select name="pay">
-                        <option value="0-50000">0 ~ 50,000</option>
-                        <option value="50001-100000">50,001 ~ 100,000</option>
-                        <option value="100001-150000">100,001 ~ 150,000</option>
-                        <option value="150001-200000">150,001 ~ 200,000</option>
-                        <option value="200001-250000">200,001 ~ 250,000</option>
-                        <option value="250001-300000">250,001 ~ 300,000</option>
-                        <option value="300001-350000">300,001 ~ 350,000</option>
-                        <option value="350001-400000">350,001 ~ 400,000</option>
-                        <option value="400001-450000">400,001 ~ 450,000</option>
-                        <option value="450001-500000">450,001 ~ 500,000</option>
-                        <option value="500001-550000">500,001 ~ 550,000</option>
-                        <option value="550001-600000">550,001 ~ 600,000</option>
-                        <option value="600001-650000">600,001 ~ 650,000</option>
-                        <option value="650001-700000">650,001 ~ 700,000</option>
-                    </select>
+                    <input type=number placeholder="페이를 입력하세요.">
                 </label>
+
+
 
                 <label for="date-picker"># 날짜</label>
                 <input type="date" id="date-picker" name="date">

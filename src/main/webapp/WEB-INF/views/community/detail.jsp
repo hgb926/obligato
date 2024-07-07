@@ -251,7 +251,7 @@
 <div class="lay-out none"></div>
 <div class="container">
     <header>
-        <h1 class="home">Obligato</h1>
+        <h1 style="cursor: pointer" onclick="window.location.href=`/`">Obligato</h1>
         <c:if test="${user != null}">
             <div>${user.name}님, 환영합니다!</div>
         </c:if>
